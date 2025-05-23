@@ -16,6 +16,6 @@ export const getProfileImageUrl = (imagePath) => {
   // Remove any leading server path if present
   // const relativePath = normalizedPath.replace(/^.*\/uploads\//, '/uploads/');
   
-  // return `https://1786vqrk-5000.inc1.devtunnels.ms${relativePath}`;
-  return `https://1786vqrk-5000.inc1.devtunnels.ms/${cleanPath}`;
+  // return `http://localhost:5000${relativePath}`;
+  return `http://localhost:5000/${cleanPath}`;
 };

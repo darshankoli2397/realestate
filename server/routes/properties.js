@@ -92,13 +92,13 @@ router.get('/', async (req, res) => {
       
       // Convert images to full URLs
       propertyObj.images = propertyObj.images.map(img => 
-        img.startsWith('http') ? img : `https://1786vqrk-5000.inc1.devtunnels.ms${img}`
+        img.startsWith('http') ? img : `http://localhost:5000${img}`
       );
       
       // Convert mainImage to full URL
       propertyObj.mainImage = propertyObj.mainImage?.startsWith('http') 
         ? propertyObj.mainImage 
-        : `https://1786vqrk-5000.inc1.devtunnels.ms${propertyObj.mainImage}`;
+        : `http://localhost:5000${propertyObj.mainImage}`;
       
       return propertyObj;
     });
@@ -153,7 +153,7 @@ router.post('/', auth, upload.array('images', 5), async (req, res) => {
       success: true,
       property: {
         ...property._doc,
-        images: images.map(img => `https://1786vqrk-5000.inc1.devtunnels.ms${img}`)
+        images: images.map(img => `http://localhost:5000${img}`)
       }
     });
   } catch (err) {
@@ -201,8 +201,8 @@ router.get('/my-properties', auth, async (req, res) => {
     // Enhance properties with full image URLs
     const enhancedProperties = properties.map(property => ({
       ...property._doc,
-      images: property.images.map(img => `https://1786vqrk-5000.inc1.devtunnels.ms/${img.replace(/^\/+/, '')}`),
-      mainImage: property.mainImage ? `https://1786vqrk-5000.inc1.devtunnels.ms/${property.mainImage.replace(/^\/+/, '')}` : null
+      images: property.images.map(img => `http://localhost:5000/${img.replace(/^\/+/, '')}`),
+      mainImage: property.mainImage ? `http://localhost:5000/${property.mainImage.replace(/^\/+/, '')}` : null
     }));
 
     res.json({ 

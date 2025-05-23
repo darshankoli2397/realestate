@@ -18,7 +18,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           ? '/api/user/profile' 
           : '/api/roomowner/profile';
 
-        const response = await axios.get(`https://1786vqrk-5000.inc1.devtunnels.ms${endpoint}`, {
+        const response = await axios.get(`http://localhost:5000${endpoint}`, {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         });
@@ -36,7 +36,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('https://1786vqrk-5000.inc1.devtunnels.ms/api/auth/logout', {}, { withCredentials: true });
+      await axios.post('http://localhost:5000/api/auth/logout', {}, { withCredentials: true });
       setIsLoggedIn(false);
       localStorage.removeItem('token');
       localStorage.removeItem('userType');
@@ -63,7 +63,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             <img
               src={
                 userData?.profilePhoto
-                  ? `https://1786vqrk-5000.inc1.devtunnels.ms/${userData.profilePhoto.replace(/\\/g, '/')}`
+                  ? `http://localhost:5000/${userData.profilePhoto.replace(/\\/g, '/')}`
                   : 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg'
               }
               alt="Profile"

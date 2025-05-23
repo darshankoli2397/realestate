@@ -17,7 +17,7 @@ const Search = () => {
       }
 
       try {
-        const response = await axios.get('https://1786vqrk-5000.inc1.devtunnels.ms/api/apartments', {
+        const response = await axios.get('http://localhost:5000/api/apartments', {
           headers: {
             Authorization: `Bearer ${token}`, // Include token in the request header
           },

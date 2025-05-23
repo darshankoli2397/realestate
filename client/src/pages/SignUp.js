@@ -68,7 +68,7 @@ const SignUp = ({ setIsLoggedIn }) => {
         return;
       }
 
-      const response = await axios.post('https://1786vqrk-5000.inc1.devtunnels.ms/api/auth/send-otp', {
+      const response = await axios.post('http://localhost:5000/api/auth/send-otp', {
         phone: data.phone,
         email: data.email
       });
@@ -86,7 +86,7 @@ const SignUp = ({ setIsLoggedIn }) => {
   const verifyOtp = async () => {
     try {
       const data = isUser ? userData : roomOwnerData;
-      const response = await axios.post('https://1786vqrk-5000.inc1.devtunnels.ms/api/auth/verify-otp', {
+      const response = await axios.post('http://localhost:5000/api/auth/verify-otp', {
         phone: data.phone,
         email: data.email,
         otp
@@ -123,7 +123,7 @@ const SignUp = ({ setIsLoggedIn }) => {
       }
 
       const response = await axios.post(
-        `https://1786vqrk-5000.inc1.devtunnels.ms/api/auth/register${isUserForm ? '' : '-roomowner'}`,
+        `http://localhost:5000/api/auth/register${isUserForm ? '' : '-roomowner'}`,
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },

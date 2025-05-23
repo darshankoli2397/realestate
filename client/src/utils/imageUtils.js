@@ -17,6 +17,6 @@ export const getImageUrl = (imgPath) => {
         return cleanPath;
     }
     
-    return `https://1786vqrk-5000.inc1.devtunnels.ms/${cleanPath}`;
+    return `http://localhost:5000/${cleanPath}`;
 };
 export { getDefaultPropertyImage };

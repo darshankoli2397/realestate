@@ -38,14 +38,14 @@ const Hero = () => {
         }
         
         if (token && storedUserType === 'user') {
-          const profile = await axios.get('https://1786vqrk-5000.inc1.devtunnels.ms/api/user/profile', {
+          const profile = await axios.get('http://localhost:5000/api/user/profile', {
             headers: { Authorization: `Bearer ${token}` }
           });
           setUser(profile.data.data?.user);
         }
     
         // Fetch properties only for users or guests
-        const propsResponse = await axios.get('https://1786vqrk-5000.inc1.devtunnels.ms/api/properties/', {
+        const propsResponse = await axios.get('http://localhost:5000/api/properties/', {
           params: { limit: 20 },
           timeout: 5000
         });
@@ -94,7 +94,7 @@ const Hero = () => {
       }
   
       const response = await axios.get(
-        `https://1786vqrk-5000.inc1.devtunnels.ms/api/properties/${propertyId}/owner`,
+        `http://localhost:5000/api/properties/${propertyId}/owner`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -125,7 +125,7 @@ const Hero = () => {
       }
   
       const response = await axios.post(
-        'https://1786vqrk-5000.inc1.devtunnels.ms/api/user/save-property',
+        'http://localhost:5000/api/user/save-property',
         { propertyId },
         {
           headers: { Authorization: `Bearer ${token}` }

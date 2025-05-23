@@ -14,7 +14,7 @@ const SignIn = ({ setIsLoggedIn }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://1786vqrk-5000.inc1.devtunnels.ms/api/auth/login', {
+      const response = await axios.post('http://localhost:5000/api/auth/login', {
         email,
         password,
         userType, // Include userType in the request

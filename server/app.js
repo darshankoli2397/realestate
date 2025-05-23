@@ -41,7 +41,10 @@ db.once('open', () => {
 });
 
 // Middleware
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' })); // Allow frontend to send credentials
+// app.use(cors({ credentials: true, origin: 'http://localhost:3000' })); // Allow frontend to send credentials
+app.use(cors({ credentials: true, origin: '*' }));
+
+
 app.use(express.json()); // Parse JSON request bodies
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));

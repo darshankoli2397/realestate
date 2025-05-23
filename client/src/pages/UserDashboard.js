@@ -9,7 +9,7 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchUserProperty = async () => {
       try {
-        const response = await axios.get('https://1786vqrk-5000.inc1.devtunnels.ms/api/user/property', {
+        const response = await axios.get('http://localhost:5000/api/user/property', {
           withCredentials: true,
         });
         if (response.data.property) {
@@ -32,7 +32,7 @@ const UserDashboard = () => {
           <p>{property.description}</p>
           <p><strong>Price:</strong> ${property.price}</p>
           <p><strong>Location:</strong> {property.location}</p>
-          <img src={`https://1786vqrk-5000.inc1.devtunnels.ms/${property.image}`} alt={property.title} />
+          <img src={`http://localhost:5000/${property.image}`} alt={property.title} />
         </div>
       ) : (
         <p>No property purchased yet.</p>
